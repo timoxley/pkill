@@ -1,0 +1,15 @@
+{
+  "name": "pkill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "keywords": [],
+  "author": "Tim Oxley <secoif@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  }
+}

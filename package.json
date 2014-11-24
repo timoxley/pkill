@@ -1,15 +1,24 @@
 {
   "name": "pkill",
   "version": "1.0.0",
-  "description": "",
+  "description": "Convenience wrapper around `pkill(1)`.",
   "main": "index.js",
+  "dependencies": {
+    "tape": "^3.0.3"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "tape test.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timoxley/pkill.git"
   },
   "keywords": [],
   "author": "Tim Oxley <secoif@gmail.com>",
   "license": "ISC",
-  "devDependencies": {
-    "tape": "^3.0.3"
-  }
+  "bugs": {
+    "url": "https://github.com/timoxley/pkill/issues"
+  },
+  "homepage": "https://github.com/timoxley/pkill"
 }

@@ -1,6 +1,9 @@
 # pkill
 
-## Examples
+Convenience wrapper around `pkill(1)`.
+
+## Usage
+
 ```js
 pkill('node') // kills all node processes
 // will throw if there's a problem.
@@ -27,7 +30,7 @@ pkill('node', function(err, validPid) {
 
 ## Compatibility
 
-Convenience wrapper around `pkill(1)`. Will not work on windows.
+Not work on windows.
 
 ## License
 

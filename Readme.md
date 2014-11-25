@@ -32,6 +32,12 @@ pkill('node', function(err, validPid) {
 
 Not work on windows.
 
+## TODO
+
+* Expose other signals.
+* Expose other flags. 
+* Expose pgrep.
+
 ## License
 
 MIT

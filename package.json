@@ -1,6 +1,6 @@
 {
   "name": "pkill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convenience wrapper around `pkill(1)`.",
   "main": "index.js",
   "dependencies": {},

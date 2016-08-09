@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Convenience wrapper around `pkill(1)`.",
   "main": "index.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "tape": "^3.0.3"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "repository": {
     "type": "git",

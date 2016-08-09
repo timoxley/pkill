@@ -5,10 +5,11 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "standard": "^7.1.2",
     "tape": "^4.6.0"
   },
   "scripts": {
-    "test": "node test"
+    "test": "tape test.js && standard"
   },
   "repository": {
     "type": "git",

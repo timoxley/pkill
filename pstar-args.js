@@ -70,6 +70,6 @@ var options = module.exports = {
   euid: 'Restrict matches to processes with an effective user ID in the comma-separated list euid.',
   reverse: 'Reverse the sense of the matching; display processes that do not match the given criteria.',
   exact: 'Require an exact match of the process name, or argument list if -f is given.  The default is to match any substring.',
-  signal: ['A non-negative decimal number or symbolic signal name specifying the signal to be sent instead of the default TERM.'
+  signal: ['A non-negative decimal number or symbolic signal name specifying the signal to be sent instead of the default TERM.',
            'This option is valid only when given as the first argument to pkill.'].join(' ')
 }

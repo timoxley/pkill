@@ -1,71 +1,71 @@
-"use strict"
+'use strict'
 
-var test = require("tape")
+var test = require('tape')
 var spawn = require('child_process').spawn
 var pkill = require('./')
 
-test('pkill in background', function(t) {
-  var sleep = spawn('sleep', [2])
-  .on('exit', function(code) {
+test('pkill in background', function (t) {
+  spawn('sleep', [2])
+  .on('exit', function (code) {
     t.ok(code !== 0) // was killed
     t.end()
   })
   pkill('sleep')
 })
 
-test('pkill with callback', function(t) {
+test('pkill with callback', function (t) {
   t.plan(3)
-  var sleep = spawn('sleep', [2])
-  .on('exit', function(code) {
+  spawn('sleep', [2])
+  .on('exit', function (code) {
     t.ok(code !== 0) // was killed
   })
-  pkill('sleep', function(err, killed) {
+  pkill('sleep', function (err, killed) {
     t.ifError(err)
     t.ok(killed)
   })
 })
 
-test('pkill background failure is quiet', function(t) {
-  pkill('', function(err) {
+test('pkill background failure is quiet', function (t) {
+  pkill('', function (err) {
     t.ok(err)
     t.end()
   })
 })
 
-test('pkill background failure is quiet', function(t) {
+test('pkill background failure is quiet', function (t) {
   pkill('jvghchfgcghfasdasd')
-  setTimeout(function() {
+  setTimeout(function () {
     t.end()
   })
 })
 
-test('pkill callback failure quiet', function(t) {
-  pkill('jvghchfgcghfasdasd', function(err, killed) {
+test('pkill callback failure quiet', function (t) {
+  pkill('jvghchfgcghfasdasd', function (err, killed) {
     t.ifError(err)
     t.ok(!killed)
     t.end()
   })
 })
 
-test('pkill.full background', function(t) {
+test('pkill.full background', function (t) {
   var num = Math.random() + 2
-  var sleep = spawn('sleep', [num])
-  .on('exit', function(code) {
+  spawn('sleep', [num])
+  .on('exit', function (code) {
     t.ok(code !== 0) // was killed
     t.end()
   })
   pkill.full('sleep ' + num)
 })
 
-test('pkill.full callback', function(t) {
+test('pkill.full callback', function (t) {
   t.plan(3)
   var num = Math.random() + 2
-  var sleep = spawn('sleep', [num])
-  .on('exit', function(code) {
+  spawn('sleep', [num])
+  .on('exit', function (code) {
     t.ok(code !== 0) // was killed
   })
 
-  pkill.full('sleep ' + num, function(err, killed) {
+  pkill.full('sleep ' + num, function (err, killed) {
     t.ifError(err)
     t.ok(killed)
   })

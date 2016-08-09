@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 var execFile = require('child_process').execFile
 var assert = require('assert')
@@ -16,7 +16,7 @@ var NO_MATCHED_PROCESSES = 1
 var INVALID_OPTIONS = 2
 var INTERNAL_ERROR = 3
 
-module.exports = function pkill(name, opts, fn) {
+module.exports = function pkill (name, opts, fn) {
   assert(typeof name === 'string', 'first argument must be string')
   if (arguments.length === 2) {
     if (typeof opts === 'function') {
@@ -30,7 +30,7 @@ module.exports = function pkill(name, opts, fn) {
 
   assert(typeof fn === 'function', 'callback must be a function')
 
-  execFile('pkill', [name], function(err, stdout) {
+  execFile('pkill', [name], function (err, stdout) {
     if (err && err.code !== NO_MATCHED_PROCESSES) {
       err.message = getMessage(err)
       return fn(err)
@@ -40,7 +40,7 @@ module.exports = function pkill(name, opts, fn) {
   })
 }
 
-module.exports.full = function pkillfull(pattern, opts, fn) {
+module.exports.full = function pkillfull (pattern, opts, fn) {
   assert(typeof pattern === 'string', 'first argument must be string')
   if (arguments.length === 2) {
     if (typeof opts === 'function') {
@@ -54,7 +54,7 @@ module.exports.full = function pkillfull(pattern, opts, fn) {
 
   assert(typeof fn === 'function', 'callback must be a function')
 
-  execFile('pkill', ['-f', pattern], function(err, stdout) {
+  execFile('pkill', ['-f', pattern], function (err, stdout) {
     if (err && err.code !== NO_MATCHED_PROCESSES) {
       err.message = getMessage(err)
       return fn(err)
@@ -64,16 +64,24 @@ module.exports.full = function pkillfull(pattern, opts, fn) {
   })
 }
 
-function getMessage(err) {
+function getMessage (err) {
   if (!err) return ''
   var message = err.message.trim()
-  var content = message.replace(/^Command\ failed\:/, '').trim()
+  var content = message.replace(/^Command failed:/, '').trim()
   return content
 }
 
-function maybeThrow(err) {
+function maybeThrow (err) {
   if (err) throw err
 }
 
-
-
+module.exports.status = {
+  MATCHED_PROCESSES: MATCHED_PROCESSES,
+  NO_MATCHED_PROCESSES: NO_MATCHED_PROCESSES,
+  INVALID_OPTIONS: INVALID_OPTIONS,
+  INTERNAL_ERROR: INTERNAL_ERROR,
+  0: 'MATCHED_PROCESSES',
+  1: 'NO_MATCHED_PROCESSES',
+  2: 'INVALID_OPTIONS',
+  3: 'INTERNAL_ERROR'
+}

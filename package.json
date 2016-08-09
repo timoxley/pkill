@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "Tim Oxley <secoif@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/timoxley/pkill/issues"
   },

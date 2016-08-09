@@ -2,7 +2,7 @@
 
 ### Convenience wrapper around `pkill(1)`.
 
-
+[![Build Status](https://travis-ci.org/timoxley/pkill.png?branch=master)](https://travis-ci.org/timoxley/pkill)
 
 ## Usage
 

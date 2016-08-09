@@ -1,42 +1,42 @@
 # pkill
 
-Convenience wrapper around `pkill(1)`.
+### Convenience wrapper around `pkill(1)`.
+
+
 
 ## Usage
 
-```js
-pkill('node') // kills all node processes
-// will throw if there's a problem.
-// does not throw for no matching processes.
+#### Sync
 
-// alternatively, get some feedback
-pkill('node', function(err, validPid) {
-  err // if err.
-  validPid // if 'node' matched any processes.
-  // does not err for no matching processes.
-})
+* Will throw if there's a problem.
+* Does not throw for no matching processes.
+
+```js
+// kills all processes named 'node'
+pkill('node')
 ```
 
-To match more than just the process name, use `pkill.full`:
+#### Match on full exec pattern: `pkill.full`
 
 ```js
-pkill.full('node debug') // kills all processes matching 'node debug'
-pkill('node', function(err, validPid) {
-  err // if err
-  validPid // if 'node' matched any processes
-  // does not err for no matching processes.
+// kills all processes matching 'node debug'
+pkill.full('node debug')
+```
+
+#### Async
+
+* Does not err for no matching processes.
+
+```js
+pkill('node', function (err, validPid) {
+  err      // if err.
+  validPid // if matched any processes
 })
 ```
 
 ## Compatibility
 
-Not work on windows.
-
-## TODO
-
-* Expose other signals.
-* Expose other flags. 
-* Expose pgrep.
+* Not work on windows.
 
 ## License
 

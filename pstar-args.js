@@ -44,7 +44,7 @@
  *   If any pattern operands are specified, they are used as regular expressions to match the command name or full argument list of each process.
  */
 
-var options = module.exports = {
+module.exports = {
   pattern: 'Used as regular expressions to match the command name or full argument list of each process.',
   patterns: 'If any pattern operands are specified, they are used as regular expressions to match the command name or full argument list of each process.',
   pidfile: 'Restrict matches to a process whose PID is stored in the pidfile file.',

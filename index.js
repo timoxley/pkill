@@ -17,7 +17,6 @@ var INVALID_OPTIONS = 2
 var INTERNAL_ERROR = 3
 
 module.exports = function pkill (name, opts, fn) {
-  assert(typeof name === 'string', 'first argument must be string')
   if (arguments.length === 2) {
     if (typeof opts === 'function') {
       fn = opts
@@ -29,6 +28,8 @@ module.exports = function pkill (name, opts, fn) {
   fn = fn || maybeThrow
 
   assert(typeof fn === 'function', 'callback must be a function')
+  if (typeof name !== 'string') return fn(new Error('first argument must be string'))
+  if (!name.length) return fn(new Error('name must not be empty'))
 
   execFile('pkill', [name], function (err, stdout) {
     if (err && err.code !== NO_MATCHED_PROCESSES) {

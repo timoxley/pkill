@@ -25,11 +25,41 @@ test('pkill with callback', function (t) {
   })
 })
 
-test('pkill background failure is quiet', function (t) {
+test('pkill empty string failure callback err', function (t) {
   pkill('', function (err) {
     t.ok(err)
     t.end()
   })
+})
+
+test('pkill empty string failure with no callback throws', function (t) {
+  t.throws(() => {
+    pkill('')
+  })
+  t.end()
+})
+
+test('pkill empty string failure with no callback throws', function (t) {
+  t.throws(() => {
+    pkill(undefined)
+  })
+  t.end()
+})
+
+test('pkill undefined arg failure callback err', function (t) {
+  pkill(undefined, function (err) {
+    t.ok(err)
+    t.end()
+  })
+})
+
+test('pkill no arg failure throw err', function (t) {
+  t.throws(() => {
+    pkill(() => {
+      t.fail('should not get here')
+    })
+  })
+  t.end()
 })
 
 test('pkill background failure is quiet', function (t) {
